@@ -31,12 +31,10 @@ docker and kubernetes - For building a flexible infrastructure deployment in sys
 #### should be implemented 
 
 1. Creating dynamic yaml files - research on Helm and Python Scripts with Jinja2 to implement.
-
 2. Setting up a Kafka server and integrating it into the system.
-
 3. Setting up a Mongo server for service and communication with it.
-
 4. Make sure that all the variables that are relevant to all the projects sit in one dedicated folder and from there they are called anywhere relevant.
+5. create a "common" project on npm site
 ## Stage 2 - The phase of setting up the services
  
  **Will be filled after the implementation of step 1.
