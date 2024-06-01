@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testafka-depl
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testkafka
+  template:
+    metadata:
+      labels:
+        app: testkafka
+    spec:
+      containers:
+        - name: testkafka
+          image: eyalpross101/testkafka
+          env:
+            - name: MONGO_URI
+              value: "mongodb://testkafka-mongo-srv:27017/testkafka"
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testkafka-srv
+  namespace: default
+spec:
+  selector:
+    app: testkafka
+  ports:
+    - name: testkafka
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

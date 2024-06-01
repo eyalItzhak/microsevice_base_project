@@ -16,3 +16,11 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
+    - image: eyalpross101/testkafka
+      context: testkafka
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .            
