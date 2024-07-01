@@ -6,4 +6,4 @@ RUN npm install --omit=dev
 RUN npm install -g @nestjs/cli
 COPY . .
 
-CMD ["npm", "start"]
+CMD [ "npm", "run", "start:dev" ]

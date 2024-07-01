@@ -16,7 +16,12 @@ spec:
       initContainers:
         - name: init-myservice
           image: busybox
-          command: ['sh', '-c', 'until nc -z kafka-srv.default.svc.cluster.local 9092; do echo waiting for kafka-srv.default.svc.cluster.local; sleep 2; done;']
+          command:
+            [
+              "sh",
+              "-c",
+              "until nc -z kafka-srv.default.svc.cluster.local 9092; do echo waiting for kafka-srv.default.svc.cluster.local; sleep 4; done;",
+            ]
       containers:
         - name: testkafka
           image: eyalpross101/testkafka
